@@ -3,24 +3,22 @@ name: website
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: chechout
-        uses: actions/chechout@v1
+      - name: checkout
+        uses: actions/checkout@v1
 
-      - name: configration
+      - name: configuration
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: ${AWS_DEFAULT_REGION}
+          region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: deploy website
         run: aws s3 sync . s3://manish123123 --delete
-        
-          
-      
+   
