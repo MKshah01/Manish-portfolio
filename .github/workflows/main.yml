@@ -1,0 +1,22 @@
+name: website
+
+on:
+  push:
+    branches:
+      -main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chechout
+        uses: actions/chechout@v1
+
+      - name: configration
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY_ID }}
+          region: ${AWS_DEFAULT_REGION}
+          
+      
