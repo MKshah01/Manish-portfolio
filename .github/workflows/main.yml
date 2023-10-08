@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    aws-region: us-east-1
     steps:
       - name: checkout
         uses: actions/checkout@v1
@@ -18,8 +17,9 @@ jobs:
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          
+          aws-region: us-east-1
 
       - name: deploy website
-        run: aws s3 sync . s3://manish123123 --delete
+        run: aws s3 sync . s3://manish123123 --delete --region us-east-1
+
    
