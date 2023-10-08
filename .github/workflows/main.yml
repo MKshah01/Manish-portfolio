@@ -17,7 +17,7 @@ jobs:
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: ${{ secrets.AWS_DEFAULT_REGION }}
+          region: us-east-1
 
       - name: deploy website
         run: aws s3 sync . s3://manish123123 --delete
