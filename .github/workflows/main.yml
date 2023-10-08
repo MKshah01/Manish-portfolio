@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    region: us-east-1
+    aws-region: us-east-1
     steps:
       - name: checkout
         uses: actions/checkout@v1
