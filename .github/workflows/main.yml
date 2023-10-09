@@ -12,13 +12,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
 
-      - name: configuration
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: AKIA254U4GKVC6WYIUOO
+          aws-secret-access-key: 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
           aws-region: us-east-1
-
+          
       - name: deploy website
         run: aws s3 sync . s3://manish123123 --delete --region us-east-1
 
