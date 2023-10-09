@@ -6,19 +6,21 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v1
 
       - name: configuration
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: us-east-1
+          aws-region: us-east-1
 
       - name: deploy website
-        run: aws s3 sync . s3://manish123123 --delete
+        run: aws s3 sync . s3://manish123123 --delete --region us-east-1
+
+
    
