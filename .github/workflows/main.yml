@@ -15,8 +15,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA254U4GKVNZ32GD57
-          aws-secret-access-key: 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
+          aws-access-key-id: AKIA254U4GKVKBZQFH5D
+          aws-secret-access-key: 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
           aws-region: us-east-1
           
       - name: deploy website
